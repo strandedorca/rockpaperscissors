@@ -1,9 +1,9 @@
 .flex {
-   
    display: flex;
    gap: 120px;
    align-items: center;
    justify-content: center;
+   margin-top: 20px;
 }
 
 * {
@@ -21,38 +21,45 @@ body {
    background-color: #737D39;
 }
 
+p {
+   margin: 30px 60px 20px;
+}
+
 #title {
-   font-size: 4em;
-   margin-top: 90px;
+   font-size: 3.5em;
+   margin-top: 70px;
 }
 
 /* Greetings */
 .greetings {
-   margin-left: 500px;
-   margin-right: 500px;
-}
-
-.greetings p {
-   padding: 30px 120px 20px;
-   font-size: 1.2em;
-   text-align: justify;
+   margin: 0px 450px;
 }
 
 .greetings img {
-   max-width: 800px;
-   margin: auto;
    padding: 20px;
 }
 
 img {
    width: 100%;
    display: block;
+   margin: auto;
+}
+
+#end_image {
+   margin-top: 30px;
+   margin-bottom: 30px;
+   max-width: 450px;
+   border-radius: 20px;
+   border: 4px solid #FFFFFF;
+}
+
+button {
+   width: 250px;
+   height: 70px;
 }
 
 #start {
    margin-top: 30px;
-   width: 250px;
-   height: 80px;
 }
 
 button {
@@ -60,12 +67,17 @@ button {
    color: #737D39;
    text-transform: uppercase;
    font-weight: 700;
-   font-size: 1.35em;
+   font-size: 1.15em;
    letter-spacing: .8px;
    border-radius: 40px;
 }
 
 /* Gameplay */
+p.toRemove {
+   font-size: 1.2em;
+   margin: 20px 0px;
+}
+
 #Rock, #Scissors, #Paper {
    margin-top: 30px;
    width: 200px;
@@ -75,4 +87,9 @@ button {
 button:hover {
    background-color: #222629;
    color: #FFFFFF;
+}
+
+h2 {
+   margin: 30px 0px;
+   font-size: 1.3em;
 }

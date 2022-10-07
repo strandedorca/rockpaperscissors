@@ -17,7 +17,7 @@ function playRound(playerSelection) {
    console.log(`Round ${round}:`);
    console.log(`Player: ${playerSelection} - Computer: ${computerSelection}`);
    
-   selection.textContent = `Computer chooses ${computerSelection}`;
+   selection.textContent = `Computer chooses ${computerSelection}!`;
 
    if (computerSelection === playerSelection) {
       return 'draw';
@@ -47,11 +47,10 @@ function playRound(playerSelection) {
 
 // print the winner of a round
 function printWinner(winner) {
-   console.log(`${winner} won this round`);
    if (winner === 'draw') {
-      round_winner.textContent = "Draw!";
+      round_winner.textContent = `Round ${round}: Draw!`;
    } else {
-      round_winner.textContent = `${winner} won this round!`;
+      round_winner.textContent = `Round ${round}: ${winner} won!`;
    }
 }
 
@@ -60,25 +59,29 @@ function updateScores(winner) {
    round++;
    if (winner === 'Computer') {
       computerScore++;
+      computer_score.textContent = computerScore;
    } else if (winner === 'Player') {
       playerScore++;
+      player_score.textContent = playerScore;
    }
-   console.log(`Current score (comp : player): ${computerScore} : ${playerScore}`);
-   scores.textContent = `Current score (comp : player): ${computerScore} : ${playerScore}`;
 }
 
 // Check if there is a winner (winner is the one who reaches 5 points first)
 function checkWinner(comp, player) {
    if ((comp == 5) || (player == 5)) {
-      end.textContent = 'The Game Ended.';
       const toremove = document.querySelectorAll('.toRemove');
       for (const e of toremove) {body.removeChild(e)};
-      scores.textContent = `Final Score (comp : player): ${computerScore} : ${playerScore}`;
       if (comp == 5) {
-         winner_display.textContent = 'Game Over';
+         winner_display.textContent = 'Game Over. You Lost :/';
+         end_image.setAttribute('src', `images/loss_meme.png`);
       } else {
          winner_display.textContent = 'You Won!';
+         end_image.setAttribute('src', `images/win_meme.png`);
       }
+      end_image.setAttribute('id', 'end_image');
+      body.appendChild(end_image);
+      body.appendChild(winner_display);
+      body.appendChild(restart);
    }
 } // returns boolean
 
@@ -91,24 +94,48 @@ const rule = document.createElement('p');
 const round_display = document.createElement('h1');
 const selection = document.createElement('p');
 const round_winner = document.createElement('p');
-const scores = document.createElement('p');
-const end = document.createElement('p');
-const winner_display = document.createElement('p');
+const scores = document.createElement('div');
+scores.classList.add('flex');
+
+const end_image = document.createElement('img');
+const winner_display = document.createElement('h2');
 const div = document.createElement('div');
 div.classList.add('flex');
+
+const player_block = document.createElement('div');
+const computer_block = document.createElement('div');
+const player_title  = document.createElement('h3');
+const computer_title  = document.createElement('h3');
+const player_score = document.createElement('h3');
+const computer_score = document.createElement('h3');
+
+const restart = document.createElement('button');
+restart.textContent = 'Restart';
+restart.setAttribute('onClick', "window.location.reload(false)");
 
 start.addEventListener('click', startGame);
 
 // startGame function - add elements
 function startGame() {
-   // body.style.backgroundColor = '#222629';
    body.removeChild(greetings);
-   // const rule = document.createElement('p');
    rule.textContent = 'Winning Condition: First to score 5 wins.';
    addThenRemove(rule);
-   // const round_display = document.createElement('h1');
    round_display.textContent = `Round ${round}`;
    addThenRemove(round_display);
+   body.appendChild(scores);
+   scores.appendChild(player_block);
+   scores.appendChild(computer_block);
+
+   player_title.textContent = 'PLAYER';
+   player_block.appendChild(player_title);
+   player_block.appendChild(player_score);
+   player_score.textContent = playerScore;
+
+   computer_title.textContent = 'COMPUTER';
+   computer_block.appendChild(computer_title);
+   computer_block.appendChild(computer_score);
+   computer_score.textContent = computerScore;
+   
    addThenRemove(div);
 
    rock = addButton('Rock');
@@ -121,9 +148,6 @@ function startGame() {
    
    addThenRemove(selection);
    addThenRemove(round_winner);
-   body.appendChild(scores);
-   body.appendChild(end);
-   body.appendChild(winner_display);
 }
 
 function addThenRemove(element) {
