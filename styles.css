@@ -1,6 +1,7 @@
 .flex {
+   
    display: flex;
-   gap: 20px;
+   gap: 120px;
    align-items: center;
    justify-content: center;
 }
