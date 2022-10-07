@@ -1,0 +1,77 @@
+.flex {
+   display: flex;
+   gap: 20px;
+   align-items: center;
+   justify-content: center;
+}
+
+* {
+   box-sizing: border-box;
+   padding: 0px;
+   margin: 0px;
+   border: 0;
+}
+
+body {
+   font-size: 100%;
+   font-family: 'Helvetica', sans-serif;
+   text-align: center;
+   color: #FFFFFF;
+   background-color: #737D39;
+}
+
+#title {
+   font-size: 4em;
+   margin-top: 90px;
+}
+
+/* Greetings */
+.greetings {
+   margin-left: 500px;
+   margin-right: 500px;
+}
+
+.greetings p {
+   padding: 30px 120px 20px;
+   font-size: 1.2em;
+   text-align: justify;
+}
+
+.greetings img {
+   max-width: 800px;
+   margin: auto;
+   padding: 20px;
+}
+
+img {
+   width: 100%;
+   display: block;
+}
+
+#start {
+   margin-top: 30px;
+   width: 250px;
+   height: 80px;
+}
+
+button {
+   background-color: #FFFFFF;
+   color: #737D39;
+   text-transform: uppercase;
+   font-weight: 700;
+   font-size: 1.35em;
+   letter-spacing: .8px;
+   border-radius: 40px;
+}
+
+/* Gameplay */
+#Rock, #Scissors, #Paper {
+   margin-top: 30px;
+   width: 200px;
+   height: 60px;
+}
+
+button:hover {
+   background-color: #222629;
+   color: #FFFFFF;
+}
