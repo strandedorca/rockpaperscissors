@@ -1,4 +1,4 @@
-# Project's Name
+# Rock, Paper & Scissors Web Game
 Rock Paper Scissors
 Live Preview: https://strandedorca.github.io/rockpaperscissors/
 # Project's Description
